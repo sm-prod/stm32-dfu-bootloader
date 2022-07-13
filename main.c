@@ -313,7 +313,11 @@ int force_dfu_gpio() {
 #define RCC_CFGR_ADCPRE_PCLK2_DIV8      0x3
 #define RCC_CFGR_PLLMUL_PLL_CLK_MUL9    0x7
 #define RCC_CFGR_PLLSRC_HSE_CLK         0x1
-#define RCC_CFGR_PLLXTPRE_HSE_CLK       0x0
+#ifdef HSE_SPEED_16MHZ
+#define RCC_CFGR_PLLXTPRE_HSE_CLK       0x1
+#else
+#define RCC_CFGR_PLLXTPRE_HSE_CLK       0x0 // HSE_SPEED_MHZ == 8
+#endif
 #define RCC_CFGR_SW_SYSCLKSEL_PLLCLK    0x2
 #define RCC_CFGR_SW_SHIFT                 0
 #define RCC_CFGR_SW (3 << RCC_CFGR_SW_SHIFT)
