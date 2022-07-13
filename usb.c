@@ -4,6 +4,8 @@
 
 #include <string.h>
 
+#include "flash_config.h"
+
 #include "usb.h"
 
 // Defined in main
